@@ -33,4 +33,9 @@ public class Client {
 
     @OneToOne
     private Usuario usuario;
+
+    public Client(Usuario usuario, String name) {
+        this.usuario = usuario;
+        this.name = name;
+    }
 }

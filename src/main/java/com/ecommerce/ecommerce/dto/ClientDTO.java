@@ -1,6 +1,7 @@
 package com.ecommerce.ecommerce.dto;
 
 import com.ecommerce.ecommerce.model.Client;
+import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import lombok.Getter;
@@ -17,7 +18,14 @@ public class ClientDTO {
     @NotNull
     @NotEmpty
     private String name;
+
+    @NotNull
+    @NotEmpty
+    @Email
     private String email;
+
+    @NotNull
+    @NotEmpty
     private Date dateCreated;
 
     public ClientDTO(Client client) {
