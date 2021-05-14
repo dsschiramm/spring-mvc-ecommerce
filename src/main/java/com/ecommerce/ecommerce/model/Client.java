@@ -1,7 +1,6 @@
 package com.ecommerce.ecommerce.model;
 
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import javax.persistence.Column;
@@ -27,7 +26,6 @@ public class Client {
     @Column(name = "name")
     private String name;
 
-    @Builder.Default
     @Column(name = "dateCreated")
     private Date dateCreated = new Date();
 

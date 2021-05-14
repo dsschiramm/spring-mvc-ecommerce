@@ -2,9 +2,9 @@ package com.ecommerce.ecommerce.repository;
 
 import com.ecommerce.ecommerce.model.Usuario;
 import org.springframework.data.jpa.repository.JpaRepository;
+import java.util.Optional;
 
 public interface UsuarioRepository extends JpaRepository<Usuario, Long> {
 
-    Usuario findByEmail(String name);
-
+    Optional<Usuario> findByEmail(String name);
 }

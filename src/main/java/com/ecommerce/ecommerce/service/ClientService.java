@@ -11,6 +11,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.util.Optional;
 
 @Service
 public class ClientService {
@@ -37,9 +38,9 @@ public class ClientService {
     @Transactional
     public Client save(ClientDTO clientDTO) {
 
-        Usuario usuario = usuarioRepository.findByEmail(clientDTO.getEmail());
+        Optional<Usuario> usuario = usuarioRepository.findByEmail(clientDTO.getEmail());
 
-        Client client = new Client(usuario, clientDTO.getName());
+        Client client = new Client(usuario.get(), clientDTO.getName());
 
         clienteRepository.save(client);
 
