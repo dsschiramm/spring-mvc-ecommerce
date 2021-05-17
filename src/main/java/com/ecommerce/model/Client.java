@@ -1,4 +1,4 @@
-package com.ecommerce.ecommerce.model;
+package com.ecommerce.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -30,10 +30,10 @@ public class Client {
     private Date dateCreated = new Date();
 
     @OneToOne
-    private Usuario usuario;
+    private User user;
 
-    public Client(Usuario usuario, String name) {
-        this.usuario = usuario;
+    public Client(User user, String name) {
+        this.user = user;
         this.name = name;
     }
 }

@@ -1,6 +1,6 @@
-package com.ecommerce.ecommerce.repository;
+package com.ecommerce.repository;
 
-import com.ecommerce.ecommerce.model.Client;
+import com.ecommerce.model.Client;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;

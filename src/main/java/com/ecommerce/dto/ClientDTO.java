@@ -1,6 +1,6 @@
-package com.ecommerce.ecommerce.dto;
+package com.ecommerce.dto;
 
-import com.ecommerce.ecommerce.model.Client;
+import com.ecommerce.model.Client;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
@@ -31,7 +31,7 @@ public class ClientDTO {
     public ClientDTO(Client client) {
         this.id = client.getId();
         this.name = client.getName();
-        this.email = client.getUsuario().getEmail();
+        this.email = client.getUser().getEmail();
         this.dateCreated = client.getDateCreated();
     }
 
