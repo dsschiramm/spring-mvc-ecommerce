@@ -1,4 +1,4 @@
-package com.ecommerce.ecommerce.model;
+package com.ecommerce.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -15,8 +15,8 @@ import javax.persistence.Table;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "perfil")
-public class Perfil implements GrantedAuthority {
+@Table(name = "profile")
+public class Profile implements GrantedAuthority {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
