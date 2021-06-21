@@ -2,9 +2,11 @@ package com.ecommerce.config.security;
 
 import com.ecommerce.model.User;
 import io.jsonwebtoken.Claims;
+import io.jsonwebtoken.ExpiredJwtException;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.security.authentication.CredentialsExpiredException;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Service;
 import java.util.Date;
@@ -36,7 +38,20 @@ public class TokenService {
 
     public Long getUserById(String token) {
 
-        Claims claims = Jwts.parser().setSigningKey(this.secret).parseClaimsJws(token).getBody();
-        return Long.parseLong(claims.getSubject());
+        try {
+
+            Claims claims = Jwts.parser().setSigningKey(this.secret).parseClaimsJws(token).getBody();
+            return Long.parseLong(claims.getSubject());
+
+        } catch (ExpiredJwtException e) {
+
+            throw new CredentialsExpiredException("Expired jwt credentials ", e);
+
+        }
+        /*catch (Exception e) {
+
+            //log.info("JWT token compact of handler are invalid.");
+            //log.trace("JWT token compact of handler are invalid trace: ", e);
+        }*/
     }
 }

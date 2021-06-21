@@ -18,8 +18,6 @@ import java.util.Collection;
 import java.util.List;
 
 @Data
-@NoArgsConstructor
-@AllArgsConstructor
 @Entity
 @Table(name = "user")
 public class User implements UserDetails {
@@ -37,6 +35,12 @@ public class User implements UserDetails {
 
     @ManyToMany(fetch = FetchType.EAGER)
     private List<Role> roleList = new ArrayList<>();
+
+    public User(String email, String password, List<Role> roleList) {
+        this.email = email;
+        this.password = password;
+        this.roleList = roleList;
+    }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {

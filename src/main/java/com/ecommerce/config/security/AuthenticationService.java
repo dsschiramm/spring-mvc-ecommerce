@@ -31,7 +31,11 @@ public class AuthenticationService implements UserDetailsService {
 
         Optional<User> user = userRepository.findByEmail(username);
 
-        return user.orElse(null);
+        if (user.isPresent()) {
+            return user.get();
+        }
+
+        throw new UsernameNotFoundException("Not found: " + username);
     }
 
     public String auth(UserDTO userDTO) {

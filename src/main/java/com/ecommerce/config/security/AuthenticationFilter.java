@@ -17,7 +17,10 @@ public class AuthenticationFilter extends OncePerRequestFilter {
     protected void doFilterInternal(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, FilterChain filterChain) throws ServletException, IOException {
 
         String token = getToken(httpServletRequest);
-        authenticationService.auth(token);
+
+        if (token != null) {
+            authenticationService.auth(token);
+        }
 
         filterChain.doFilter(httpServletRequest, httpServletResponse);
     }

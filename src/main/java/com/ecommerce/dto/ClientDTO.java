@@ -1,6 +1,7 @@
 package com.ecommerce.dto;
 
 import com.ecommerce.model.Client;
+
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
@@ -15,14 +16,11 @@ public class ClientDTO {
 
     private Long id;
 
-    @NotNull
-    @NotEmpty
-    private String name;
+    private UserDTO userDTO;
 
     @NotNull
     @NotEmpty
-    @Email
-    private String email;
+    private String name;
 
     @NotNull
     @NotEmpty
@@ -31,7 +29,7 @@ public class ClientDTO {
     public ClientDTO(Client client) {
         this.id = client.getId();
         this.name = client.getName();
-        this.email = client.getUser().getEmail();
+        this.userDTO.setEmail(client.getUser().getEmail());
         this.dateCreated = client.getDateCreated();
     }
 
